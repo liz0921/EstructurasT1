@@ -38,7 +38,8 @@ void menu() {
         cout << " 6. Mostrar una cola:" << endl;
         cout << " 7. Pasar Lista a cola:" << endl;
         cout << " 8. Pasar Lista a pila:" << endl;
-        cout << " 9. Pasar Pila a Lista:" << endl;
+        cout << " 9. Pasar Pila a lista:" << endl;
+        cout << "10. Pasar Pila a cola:" << endl;
 
 
         cout << " --------------------" << endl;
@@ -100,13 +101,9 @@ void menu() {
             } while (otro != 'n');
             break;
 
-
         case 6:
             gest->imprimirCola();
-           // c->showCola(); 
             break;
-
-
          case 7:
             gest->pasarListaCola(); 
             break;
@@ -116,6 +113,9 @@ void menu() {
              break;
          case 9:
              gest->pasarPilaLista();
+             break;
+         case 10:
+             gest->pasarPilaCola();
              break;
         }
        

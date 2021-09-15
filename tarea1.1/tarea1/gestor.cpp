@@ -106,3 +106,17 @@ void gestor::pasarPilaLista()
 	}
 
 }
+
+void gestor::pasarPilaCola()
+{
+	if (this->pila1->getLargo() == 0) {
+		cout << "La lista esta vacia" << endl;
+	}
+	else {
+		int num = this->pila1->getCima()->getDato();
+		this->pila1->pop();
+		this->cola1->poner(num);
+	}
+
+
+}
