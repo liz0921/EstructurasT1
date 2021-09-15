@@ -120,3 +120,27 @@ void gestor::pasarPilaCola()
 
 
 }
+
+void gestor::pasarColaLista()
+{
+	if (this->cola1->esVacia()) {
+		cout << "La cola esta vacia" << endl;
+	}
+	else {
+		int num = this->cola1->getpFrente()->getDato();
+		this->cola1->quitar();
+		this->lista->agregarOrdenado(num);
+	}
+}
+
+void gestor::pasarColaPila()
+{
+	if (this->cola1->esVacia()) {
+		cout << "La cola esta vacia" << endl;
+	}
+	else {
+		int num = this->cola1->getpFrente()->getDato();
+		this->cola1->quitar();
+		this->pila1->push(num);
+	}
+}

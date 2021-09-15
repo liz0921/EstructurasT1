@@ -36,6 +36,10 @@ public:
 	void pasarListaPila();
 	void pasarPilaLista();
 	void pasarPilaCola();
+	void pasarColaLista();
+	void pasarColaPila();
+
+
 
 
 };

@@ -40,7 +40,8 @@ void menu() {
         cout << " 8. Pasar Lista a pila:" << endl;
         cout << " 9. Pasar Pila a lista:" << endl;
         cout << "10. Pasar Pila a cola:" << endl;
-
+        cout << "11. Pasar Cola a lista:" << endl;
+        cout << "12. Pasar Cola a pila:" << endl;
 
         cout << " --------------------" << endl;
         cout << " Elija una opcion." << endl;
@@ -116,6 +117,12 @@ void menu() {
              break;
          case 10:
              gest->pasarPilaCola();
+             break;
+         case 11:
+             gest->pasarColaLista();
+             break;
+         case 12:
+             gest->pasarColaPila();
              break;
         }
        
