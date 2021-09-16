@@ -24,9 +24,7 @@ public:
 	int largo();
 	void poner(int);
 	int quitar();
-	int frente();
 	void showCola();
-	string imprimir();
 
 
 };

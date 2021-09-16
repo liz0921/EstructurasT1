@@ -19,7 +19,6 @@ public:
 	bool empty();
 	void setLargo(int plargo);
 	void setCima(nodoS* pCima);
-	string imprimir();
 	nodoS* getCima();
 	int getLargo();
 

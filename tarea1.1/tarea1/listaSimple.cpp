@@ -41,22 +41,7 @@ void listaSimple::desplegar()
 	}
 }
 
-/*
-string listaSimple::imprimir()
-{
-	string resultado = "";
-	if (this->cab) {
-		nodoS* aux = this->cab;
-		while (aux) {
-			resultado += "\n" + to_string(aux->getDato());// imprime una cadena de texto
-			aux = aux->getSgte();
-		}
-	}
-	else
-		resultado = "\n lista vacia";
-	return resultado;
-}
-*/
+
 
 void listaSimple::agregarOrdenado(int numero)
 {
@@ -109,33 +94,6 @@ void listaSimple::agregarInicio(int x)
 	largo++;
 }
 
-bool listaSimple::agregarAntesDe(int x, int referencia)
-{
-	bool agregado = false;
-	if (getLargo() != 0) {
-		if (getCab()->getDato() == referencia) {
-			agregarInicio(x);
-			agregado = true;
-		}
-		else {
-			nodoS* ant = cab;
-			while (ant->getSgte() != NULL && !agregado) {
-				if (ant->getSgte()->getDato() == referencia) {
-					nodoS* nuevo = new nodoS(x);
-					nuevo->setSgte(ant->getSgte());
-					ant->setSgte(nuevo);
-					largo++;
-					agregado = true;
-				}
-				else {
-					ant = ant->getSgte();
-				}
-			}
-		}
-	}
-
-	return agregado;
-}
 
 
 //# esVacia():: Determina si la estructura esta vacia
@@ -200,68 +158,7 @@ nodoS* listaSimple::dirUltimo()
 	return indice;
 }
 
-bool listaSimple::agregarDespuesDe(int x, int ref)
-{
-	nodoS* aux = cab;
-	while (aux != NULL) {
-		if (aux->getDato() == ref) {
-			nodoS* nuevo = new nodoS(x);
-			if (aux->getSgte() == NULL) {
-				aux->setSgte(nuevo);
-				return true;
-			}
-			else {
-				nuevo->setSgte(aux->getSgte());
-				aux->setSgte(nuevo);
-				return true;
-			}
-		}aux = aux->getSgte();
-	}
-	return false;
-}
 
-void listaSimple::agregarFinal(int x)
-{
-	bool esvacia = esVacia();
-	if (esvacia) {
-		agregarInicio(x);
-	}
-	else {
-		nodoS* nuevo = new nodoS(x);
-		nodoS* aux = cab;
-		while (aux->getSgte() != NULL) {
-			aux = aux->getSgte();
-		}
-		aux->setSgte(nuevo);
-		largo++;
-	}
-}
-/*bool listaSimple::eliminar(int x)
-{
-	bool removido = true;
-	nodoS* aux = NULL;
-	if (!esVacia()) {
-		if (getCab()->getDato() == x) {
-			aux = getCab();
-			setCab(aux->getSgte());  //Paso 2, Cabeza es ahora el segundo
-			delete aux;
-			largo--;
-			removido = true;
-		}
-		else {
-			nodoS* ant = dirAnterior(x);
-			if (ant != NULL) {
-				aux = ant->getSgte();        
-				ant->setSgte(aux->getSgte());
-				delete aux;
-				largo--;
-				removido = true;
-			}
-		}
-	}
-	return removido;
-}
-*/
 
 
 bool listaSimple::eliminar(int codigo)
@@ -295,98 +192,9 @@ bool listaSimple::eliminar(int codigo)
 	return modificado;
 }
 
-//Devuleve la direccion del nodo en la posicion n, si no lo encuentra devuelve NULL
-
-nodoS* listaSimple::dirNodoIndice(int n) {
-	nodoS* aux = NULL;
-	if (n < getLargo()) {
-		aux = getCab();
-		for (int i = 0; i <= n; i++) {
-			aux = aux->getSgte();
-		}
-	}
-	return aux;
-}
-
-//Devuelve el valor que se encuentra en la posicion n, sino devuelve 0
-
-int listaSimple::valorIndice(int n) {
-	nodoS* aux = NULL;
-	aux = dirNodoIndice(n);
-	if (aux != NULL)
-		return aux->getDato();
-	else
-		return NULL;
-}
-
-//Agrega un dato en la posicion n, devuelve verdadero si lo agrega
-
-bool listaSimple::agregarDatoPos(int x, int n) {
-	bool agregado = false;
-	if (n < getLargo()) {
-		nodoS* nuevo = new nodoS(x);
-		if (n == 0) {
-			setCab(nuevo);
-		}
-		else {
-			nodoS* aux = dirNodoIndice(n - 1);
-			nuevo->setSgte(aux->getSgte());
-			aux->setSgte(nuevo);
-		}
-		setLargo(getLargo() + 1);
-		agregado = true;
-	}
-	return agregado;
-}
-
-
-//Elimina el indice en la posicion n, devuelve verdadero si lo elimina
-
-bool listaSimple::eliminarPos(int n) {
-	bool eliminado = false;
-	if (n < getLargo()) {
-		nodoS* aux;
-		if (n == 0) {
-			aux = getCab();
-			setCab(getCab()->getSgte());
-		}
-		else {
-			nodoS* ant = dirNodoIndice(n - 1);
-			aux = ant->getSgte();
-			ant->setSgte(aux->getSgte());
-		}
-		delete aux;
-		largo--;
-		eliminado = true;
-	}
-	return eliminado;
-}
 
 
 
-void listaSimple::eliminarL() {
-	if (!this->cab)
-	cout << "La lista esta vacia" << endl;
-	else {
-
-		if (!this->cab->getSgte()) {
-			delete this->cab;
-			this->cab = nullptr;
-		}
-		else {
-			nodoS* ant = this->cab;
-			nodoS* aux = this->cab;
-
-			while (aux->getSgte()) {
-				ant = aux;
-				aux = aux->getSgte();
-			}
-
-			ant->setSgte(nullptr);
-			delete aux;
-		}
-	}
-}
 
 
 

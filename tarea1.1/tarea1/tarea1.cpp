@@ -20,12 +20,7 @@ void menu() {
     gest->setCola(NULL);
     gest->setPila(NULL);
 
-
-
-   // listaSimple* listaS = new listaSimple();
-  //  pila* p = new pila();
-   // cola* c = new cola();
-
+    
     do
     {
         cout << "\n" << endl;
@@ -55,9 +50,7 @@ void menu() {
             {
                 cout << " Digite un numero:" << endl;
                 cin >> n2;
-               // lista->agregarInicio(n2);
                 gest->agregarLista(n2);
-                 //listaS->agregarInicio(n2);
                 cout << " Se agrego correctamente el valor:"<<n2 << endl;
                 cout << " Desea agregar otro valor?  s/n " << endl;
                 cin >> otro;
@@ -66,7 +59,6 @@ void menu() {
             break;
         case 2:
             gest->imprimirLista();
-            //listaS->desplegar();
             break;
         case 3:
             do
@@ -74,7 +66,6 @@ void menu() {
                 cout << " Digite un numero:" << endl;
                 cin >> n3;
                 gest->agregarPila(n3);
-                //p->push(n3); 
                 cout << " Se agrego correctamente el valor:" << n3 << endl;
                 cout << " Desea agregar otro valor?  s/n " << endl;
                 cin >> otro;
@@ -84,7 +75,6 @@ void menu() {
 
         case 4:
             gest->imprimirPila();
-           // p->show(); 
             break;
         
         case 5:
@@ -94,7 +84,6 @@ void menu() {
                 cout << " Digite un numero:" << endl;
                 cin >> n4;
                 gest->agregarCola(n4);
-                //c->poner(n4);
                 cout << " Se agrego correctamente el valor:" << n4 << endl;
                 cout << " Desea agregar otro valor?  s/n " << endl;
                 cin >> otro;
@@ -125,8 +114,5 @@ void menu() {
              gest->pasarColaPila();
              break;
         }
-       
-       
-
     } while (true);
 }

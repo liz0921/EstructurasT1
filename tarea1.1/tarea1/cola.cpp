@@ -98,19 +98,6 @@ void cola::showCola()
 }
 
 
-string cola::imprimir() {
-	string resultado;
-	if (!this->pFrente)
-		resultado = " Cola vacia";
-	else {
-		nodoS* aux = this->pFrente;
-		while (aux) {
-			resultado += "\n" + to_string(aux->getDato());
-			aux = aux->getSgte();
-		}
-	}
-	return resultado;
-}
 
 
 

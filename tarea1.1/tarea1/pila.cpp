@@ -51,19 +51,7 @@ void pila::show()
 	}
 }
 
-string pila::imprimir() {
-	string resultado = "";
-	nodoS* aux = this->cima;
-	if (!this->cima)
-		resultado = "La pila esta vacia";
-	else {
-		while (aux) {
-			resultado += "\n" + to_string(aux->getDato());
-			aux = aux->getSgte();
-		}
-	}
-	return resultado;
-}
+
 
 void pila::setLargo(int plargo)
 {
